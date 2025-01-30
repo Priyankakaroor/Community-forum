@@ -14,7 +14,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "homepage": "https://Priyankakaroor.github.io/Community-forum",
+    "homepage": "https://priyankakaroor.github.io/Community-forum",
      "predeploy": "npm run build",
       "deploy": "gh-pages -d build"
   },
