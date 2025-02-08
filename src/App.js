@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles.css";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [content, setContent] = useState("");
 
@@ -16,31 +17,27 @@ function App() {
       {/* Navbar */}
       <header className="navbar">
         <div className="logo">Community Forum</div>
-        <nav>
-          <ul className="nav-links">
+        
+        {/* Hamburger Button */}
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          ☰
+        </button>
+
+        {/* Navigation Links */}
+        <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <ul>
             <li><a href="#">Mentor</a></li>
             <li><a href="#">Knowledge Hub</a></li>
             <li><a href="#">Community</a></li>
           </ul>
         </nav>
-        <div className="search-login">
+
+     
+      </header>
+      <div className="search-login">
           <input type="text" className="search-bar" placeholder="Search Topics" />
           <button className="login-button">Search</button>
         </div>
-      </header>
-
-      {/* Categories */}
-      {/* <section className="categories">
-        <h2>Categories</h2>
-        <div className="category-cards">
-          {["Funding", "Scaling", "Product Development", "Marketing"].map((name, index) => (
-            <div key={index} className="card">
-              <img src={`/images/${name.toLowerCase().replace(" ", "-")}.jpeg`} alt={name} />
-              <p>{name}</p>
-            </div>
-          ))}
-        </div>
-      </section> */}
       <section className="categories">
   <h2>Categories</h2>
   <div className="category-cards">
@@ -69,6 +66,7 @@ function App() {
         <button>Highest Votes</button>
         <button>Latest Thread</button>
         <button onClick={() => setShowInput(!showInput)} className="write-thread">Write New Thread</button>
+      
       </section>
 
       {/* Write New Thread */}
@@ -81,10 +79,18 @@ function App() {
 
       {/* Main Content - Threads and Trending Topics */}
       <section className="content-section">
+      <div className="trending-topics">
+          <h2>Top Trending Topics</h2>
+          <ul>
+            {["Venture Capital Trends", "Startup Funding 101", "Angel Investors vs. VCs", "Crowdfunding Success Stories"].map((topic, index) => (
+              <li key={index}>#{index + 1} {topic}</li>
+            ))}
+          </ul>
+        </div>
            <div>
          <h2 className="threadh2">Threads & Discussions</h2>
         {/* Threads */}
-        <div className="threads">
+        {/* <div className="threads">
       
           {[
             { votes: 32, title: "Is Investing in Renewable Energy the Future?", user: "green_thinker", time: "5 Hours Ago", content: "The renewable energy sector is booming. What are the key challenges?" },
@@ -104,16 +110,71 @@ function App() {
             </div>
           ))}
         </div>
- </div>
+ </div> */}
+<div className="threads">
+  {[
+    {
+      votes: 25,
+      replies: 3,
+      user: "Noah Pierre",
+      time: "58 minutes ago",
+      content: "I'm a bit unclear about how condensation forms in the water cycle. Can someone break it down?",
+      profilePic: "images/discussion-img.png",
+
+    },
+    {
+      votes: 32,
+      replies: 5,
+      user: "green_thinker",
+      time: "5 hours ago",
+      content: "The renewable energy sector is booming. What are the key challenges?",
+      profilePic: "images/discussion-img.png",
+
+    },
+    {
+      votes: 30,
+      replies: 4,
+      user: "ella_trends",
+      time: "7 hours ago",
+      content: "Scaling an e-commerce business is challenging. Share your tips!",
+      profilePic: "images/discussion-img.png",
+
+    },
+  ].map((thread, index) => (
+    <div key={index} className="thread">
+      <div className="thread-header">
+        <div className="user-info">
+          <img 
+            src={thread.profilePic}
+            alt={`${thread.user}'s Avatar`}
+            className="avatar"
+          />
+          <div>
+            <h1 className="user">{thread.user}</h1>
+            <span className="time"> · {thread.time}</span>
+          </div>
+        </div>
+      </div>
+      <p className="thread-content">{thread.content}</p>
+      <div className="thread-footer">
+        <button className="vote-button">👍 {thread.votes}</button>
+        <button className="reply-button">💬 {thread.replies} Replies</button>
+      </div>
+    </div>
+  ))}
+</div>
+</div>
+
+
         {/* Trending Topics */}
-        <div className="trending-topics">
+        {/* <div className="trending-topics">
           <h2>Top Trending Topics</h2>
           <ul>
             {["Venture Capital Trends", "Startup Funding 101", "Angel Investors vs. VCs", "Crowdfunding Success Stories"].map((topic, index) => (
               <li key={index}>#{index + 1} {topic}</li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </section>
     </div>
   );

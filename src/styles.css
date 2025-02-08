@@ -1,4 +1,4 @@
-/* Global Styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,7 @@ body {
   color: #333;
 }
 
-/* Header Styling */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@ body {
   padding: 20px 40px;
   background: linear-gradient(90deg, #327cb6, #a0b8e9);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  backdrop-filter: blur(10px); 
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -30,15 +30,23 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
 }
-
 .navbar .nav-links {
-  display: flex;
+  align-items: center;
   gap: 20px;
 }
 
-.navbar .nav-links li {
+.navbar .nav-links ul {
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
   list-style: none;
 }
+
+.navbar .nav-links li {
+  display: inline-block;
+}
+
 
 .navbar .nav-links a {
   text-decoration: none;
@@ -56,6 +64,8 @@ body {
   display: flex;
   gap: 15px;
   align-items: center;
+  margin-left: 3%;
+  margin-top: 17px;
 }
 
 .search-bar {
@@ -95,7 +105,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Categories Section */
+
 .categories {
   padding: 40px 20px;
 }
@@ -153,7 +163,7 @@ body {
   opacity: 0.8;
 }
 
-/* Filters Section */
+
 .filters {
   display: flex;
   justify-content: center;
@@ -195,7 +205,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Write New Thread Section */
+
 .write-section {
   margin-top: 20px;
   padding: 20px;
@@ -240,63 +250,157 @@ textarea:focus {
   display: flex;
 }
 .threadh2 {
-  font-size: 2rem; /* Large font size for emphasis */
-  font-weight: 700; /* Bold text */
-  color: #171743; /* Dark blue for contrast */
-  text-transform: uppercase; /* Uppercase text for a modern look */
-  letter-spacing: 1.5px; /* Spacing between letters */
+  font-size: 2rem; 
+  font-weight: 700; 
+  color: #171743; 
+  text-transform: uppercase; 
+  letter-spacing: 1.5px; 
   margin-bottom: -32px;
-  margin-left: 51px; /* Space below the heading */
-  position: relative; /* For the underline effect */
-  display: inline-block; /* Ensure the underline only spans the text */
+  margin-left: 51px;
+  position: relative; 
+  display: inline-block; 
 }
-/* Threads Section */
+
 .threads {
-  margin: 20px auto 0 40px;
-  max-height: 500px;
-  width: 1100px;
-  overflow-y: scroll;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ 
+  height: 500px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #327cb6 #eaeaea;
+}
+
+.threads::-webkit-scrollbar {
+  width: 8px;
+}
+
+.threads::-webkit-scrollbar-track {
+  background: #eaeaea;
+  border-radius: 10px;
+}
+
+.threads::-webkit-scrollbar-thumb {
+  background-color: #327cb6;
+  border-radius: 10px;
+}
+
+.threads::-webkit-scrollbar-thumb:hover {
+  background-color: #ffb703;
+}
+
+
+.threads {
+  display: flex;
+  width: 850px;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+  background-color: #f8f9fa; 
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .thread {
   display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 15px;
-  margin-bottom: 20px;
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column;
+  background: #ffffff; 
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
 
 .thread:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.votes {
-  font-size: 1.5rem;
-  color: #4caf50;
-  font-weight: bold;
-  background: #e8f5e9;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+
+.thread-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border: 2px solid #4caf50;
+  
 }
 
-/* Trending Topics Section */
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ddd;
+  object-fit: cover; 
+  border: 2px solid #327cb6; 
+}
+
+
+.user {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+
+.time {
+  font-size: 1rem;
+  color: #7f8c8d;
+  font-weight: 400;
+}
+
+.thread-content {
+  font-size: 15px;
+  margin: 20px 0;
+  line-height: 1.6;
+  color: #34495e;
+  font-weight: 400;
+}
+
+.thread-footer {
+  display: flex;
+  gap: 25px;
+}
+
+
+.vote-button,
+.reply-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #007bff;
+  transition: color 0.2s, transform 0.2s;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.vote-button:hover,
+.reply-button:hover {
+  color: #ff6b6b;
+  background-color: rgba(255, 107, 107, 0.1);
+  transform: scale(1.05);
+}
+
+.vote-button:active,
+.reply-button:active {
+  transform: scale(0.95);
+}
+
 .trending-topics {
   padding: 20px;
   margin-top: 54px;
+  height: 300px;
+    margin-left: 9px;
   background: linear-gradient(135deg, #4a90e2, #50e3c2);
   border-radius: 15px;
   color: white;
@@ -322,10 +426,57 @@ textarea:focus {
   background: rgba(255, 255, 255, 0.25);
   transform: scale(1.05);
 }
-/* Small devices (phones, 600px and below) */
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .hamburger {
+    display: block; 
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    width: 200px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .navbar {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 10px;
   }
@@ -339,6 +490,7 @@ textarea:focus {
   .search-login {
     flex-direction: column;
     gap: 10px;
+    margin-left: 4%;
   }
 
   .categories h2 {
@@ -364,7 +516,7 @@ textarea:focus {
   }
 }
 
-/* Medium devices (tablets, 600px - 1024px) */
+
 @media only screen and (max-width: 1024px) {
   .navbar {
     padding: 15px;
@@ -386,7 +538,7 @@ textarea:focus {
   }
 }
 
-/* Large devices (desktops, 1024px and above) */
+
 @media only screen and (min-width: 1025px) {
   .threads {
     max-width: 1100px;
